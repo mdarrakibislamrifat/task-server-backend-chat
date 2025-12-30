@@ -24,10 +24,7 @@ const server = http.createServer(app);
 // ২. Socket.io কনফিগারেশন
 const io = new Server(server, {
   cors: {
-    origin: [
-      "https://task-manager-backend-tqcv.onrender.com/",
-      "http://localhost:5173",
-    ],
+    origin: ["https://taskforge-manager.vercel.app/", "http://localhost:5173"],
     methods: ["GET", "POST"],
     credentials: true,
   },
