@@ -24,9 +24,14 @@ const server = http.createServer(app);
 // ২. Socket.io কনফিগারেশন
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: [
+      "https://task-manager-backend-tqcv.onrender.com/",
+      "http://localhost:5173",
+    ],
+    methods: ["GET", "POST"],
+    credentials: true,
   },
+  allowEIO3: true,
 });
 
 // Middleware to handle cors

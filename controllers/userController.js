@@ -49,4 +49,14 @@ const getUserById = async (req, res) => {
   }
 };
 
-export { getUsers, getUserById };
+const getAllUsers = async (req, res) => {
+  try {
+    // পাসওয়ার্ড বাদ দিয়ে শুধু প্রয়োজনীয় তথ্য (Name, Email, Image, Role) ফিল্টার করা
+    const users = await User.find({}).select("name email profileImageUrl role");
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error: Could not fetch users" });
+  }
+};
+
+export { getUsers, getUserById, getAllUsers };
